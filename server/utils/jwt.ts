@@ -79,7 +79,7 @@ export async function getUserForEmailSigninToken(token: string): Promise<User> {
 
   // check the token is within it's expiration time
   if (payload.createdAt) {
-    if (new Date(payload.createdAt) < subMinutes(new Date(), 10)) {
+    if (new Date(payload.createdAt) < subMinutes(new Date(), 24 * 60)) {
       throw AuthenticationError("Expired token");
     }
   }
